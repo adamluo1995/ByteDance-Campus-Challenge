@@ -9,20 +9,20 @@
 
 
 def func(N):
-    M = [[-1000 for _ in range(N)] for _ in range(N)]
-    for i in range(N):
+    M = [[-1000 for _ in range(N+1)] for _ in range(N+1)]
+    for i in range(N+1):
         M[i][0] = 1
-    for i in range(1, N):
+    for i in range(1, N+1):
         for j in range(1, i+1):
             if i != j:
                 M[i][j] = M[i-1][j] + M[i][j-1]
             else:
                 M[i][j] = M[i][j-1]
-    return 2 * M[N-1][N-1]
+    return 2 * M[N][N]
 
 
 def main():
-    N = 5
+    N = 3
     print(func(N))
 
 
